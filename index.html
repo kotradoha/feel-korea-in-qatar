@@ -120,6 +120,12 @@ h1{font-size:clamp(1rem,4.6vw,1.4rem)}
 .btn .bt2{font-size:.56rem}
 .foot{font-size:.62rem;line-height:1.4;margin:0;text-align:center}
 [hidden]{display:none!important}
+/* fixed line boxes so the Arabic (Kufi) label does not shift the icon and Save line */
+.btn .ic{height:20px;display:flex;align-items:center;justify-content:center;margin-bottom:2px}
+.btn .bt{height:22px;line-height:22px;display:flex;align-items:center;justify-content:center;overflow:visible}
+.btn .bt2{height:14px;line-height:14px;display:flex;align-items:center;justify-content:center;gap:3px}
+.btn .bt bdi{line-height:1}
+
 .btn.busy{opacity:.55;pointer-events:none}
 </style>
 
