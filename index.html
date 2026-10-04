@@ -120,10 +120,21 @@ h1{font-size:clamp(1rem,4.6vw,1.4rem)}
 .btn .bt2{font-size:.56rem}
 .foot{font-size:.62rem;line-height:1.4;margin:0;text-align:center}
 [hidden]{display:none!important}
+/* PDF note under the buttons; partner logos pinned to the bottom of each phone screen */
+html,body{min-height:100%}
+body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;padding-bottom:0!important}
+.wrap{flex:1 0 auto;width:100%}
+.pdfnote{margin:2px 0 0;text-align:center;display:flex;flex-direction:column;gap:2px}
+.pdfnote p{margin:0;font-size:.72rem;line-height:1.4;color:var(--ink);font-weight:600}
+.pdfnote p:nth-child(2){color:var(--muted)}
+.logos{margin-top:auto;padding:22px 8px max(14px,env(safe-area-inset-bottom));display:flex;justify-content:center;align-items:center;gap:min(22px,4vw);flex-wrap:nowrap}
+.logos img{display:block;width:auto;max-width:33vw;object-fit:contain}
+
 /* fixed line boxes so the Arabic (Kufi) label does not shift the icon and Save line */
 .btn .ic{height:20px;display:flex;align-items:center;justify-content:center;margin-bottom:2px}
 .btn .bt{height:22px;line-height:22px;display:flex;align-items:center;justify-content:center;overflow:visible}
-.btn .bt2{height:14px;line-height:14px;display:flex;align-items:center;justify-content:center;gap:3px}
+.btn .bt2{height:14px;line-height:14px;display:flex;align-items:center;justify-content:center;gap:3px;white-space:nowrap;font-size:min(.56rem,2.6vw)!important}
+.btn .bt{white-space:nowrap;font-size:min(.95rem,4.4vw)!important}
 .btn .bt bdi{line-height:1}
 
 .btn.busy{opacity:.55;pointer-events:none}
@@ -153,8 +164,17 @@ h1{font-size:clamp(1rem,4.6vw,1.4rem)}
   </div>
   <p class="status" id="status" role="status"></p>
 
-  <p class="foot">Embassy of the Republic of Korea to the State of Qatar · KOTRA Doha · The Korean Association of Qatar</p>
+  <div class="pdfnote" role="note">
+    <p>PDF 파일로 열면 지도 안의 링크도 바로 누를 수 있어요.</p>
+    <p>Open the PDF to tap the links inside the map.</p>
+    <p dir="rtl" style="font-family:var(--arabic)">افتح ملف PDF للنقر على الروابط داخل الخريطة.</p>
+  </div>
 </main>
+<footer class="logos" aria-label="Embassy of the Republic of Korea to the State of Qatar · KOTRA Doha · The Korean Association of Qatar">
+  <img src="logo-embassy.svg" alt="Embassy of the Republic of Korea to the State of Qatar" style="height:min(22px,5.6vw)">
+  <img src="logo-kotra.svg" alt="KOTRA Doha" style="height:min(26px,6.6vw)">
+  <img src="logo-kassoc.svg" alt="The Korean Association of Qatar" style="height:min(22px,5.6vw)">
+</footer>
 
 
 
