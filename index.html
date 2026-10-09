@@ -352,4 +352,23 @@ body{box-sizing:border-box}
 
 
 
-<script>for(const a of document.querySelectorAll(".btn"))a.addEventListener("click",()=>{for(const o of document.querySelectorAll(".btn.opened"))o.classList.remove("opened");a.classList.add("opened")});</script></body></html>
+<script>for(const a of document.querySelectorAll(".btn"))a.addEventListener("click",()=>{for(const o of document.querySelectorAll(".btn.opened"))o.classList.remove("opened");a.classList.add("opened")});</script><style>@media (min-width:820px){body{zoom:var(--z,1);min-height:calc(100dvh / var(--z,1))!important}}</style>
+<script>
+/* desktop: scale the whole page up so it fills a large screen instead of sitting small in the middle */
+(function(){
+  var R=document.documentElement;
+  function fit(){
+    if(innerWidth<820){R.style.removeProperty('--z');return;}
+    R.style.setProperty('--z','1');
+    var w=document.querySelector('.wrap'),f=document.querySelector('footer.logos');
+    var k=w.children,top=k[0].getBoundingClientRect().top,bot=k[k.length-1].getBoundingClientRect().bottom;
+    var h=(bot-top)+(f?f.getBoundingClientRect().height:0)+70;
+    var z=Math.max(1,Math.min(1.9,innerHeight/h,innerWidth*0.9/600));
+    R.style.setProperty('--z',z.toFixed(3));
+  }
+  addEventListener('resize',fit);addEventListener('load',fit);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+  fit();
+})();
+</script>
+</body></html>
