@@ -137,7 +137,7 @@ body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;paddi
 .btn .bt{white-space:nowrap;font-size:min(.95rem,4.4vw)!important}
 .btn .bt bdi{line-height:1}
 
-.moved{background:var(--red);color:#fff;border-radius:10px;padding:12px 14px;text-align:center;display:flex;flex-direction:column;gap:6px}.mv1{margin:0;font-weight:900;font-size:.9rem}.mv2{margin:0;font-family:var(--display);font-weight:900;font-size:1.35rem;background:#fff;color:var(--ink);border-radius:6px;padding:6px;user-select:all;-webkit-user-select:all}.mvbtn{align-self:center;background:var(--ink);color:#fff;border:0;border-radius:6px;padding:8px 14px;font-weight:800;font-size:.8rem;flex-direction:row}.mv3{margin:0;font-size:.68rem;line-height:1.45;opacity:.95}
+.moved_unused{background:var(--red);color:#fff;border-radius:10px;padding:12px 14px;text-align:center;display:flex;flex-direction:column;gap:6px}.mv1{margin:0;font-weight:900;font-size:.9rem}.mv2{margin:0;font-family:var(--display);font-weight:900;font-size:1.35rem;background:#fff;color:var(--ink);border-radius:6px;padding:6px;user-select:all;-webkit-user-select:all}.mvbtn{align-self:center;background:var(--ink);color:#fff;border:0;border-radius:6px;padding:8px 14px;font-weight:800;font-size:.8rem;flex-direction:row}.mv3{margin:0;font-size:.68rem;line-height:1.45;opacity:.95}
 .btn.busy{opacity:.55;pointer-events:none}
 .about{margin:6px 0 0;padding-top:8px;border-top:1px dashed color-mix(in srgb,var(--gold) 70%,transparent);display:flex;flex-direction:column;gap:2px;width:100%}
 .about p{margin:0;font-size:.74rem;line-height:1.45;font-weight:600;color:var(--ink);word-break:keep-all}
@@ -303,12 +303,6 @@ body{box-sizing:border-box}
 </style>
 
 <main class="wrap">
-  <section class="moved" role="note">
-    <p class="mv1">새 주소로 옮겼어요 · We've moved · <bdi dir="rtl" style="font-family:var(--arabic)">انتقلنا إلى عنوان جديد</bdi></p>
-    <p class="mv2" id="newurl">tinyurl.com/koreainqatar</p>
-    <button type="button" class="mvbtn" id="mvcopy">주소 복사 · Copy link · <bdi dir="rtl" style="font-family:var(--arabic)">نسخ الرابط</bdi></button>
-    <p class="mv3">브라우저 주소창에 붙여넣으면 로그인 없이 바로 저장할 수 있어요.<br>Paste it in your browser to download without signing in.<br><bdi dir="rtl" style="font-family:var(--arabic)">الصقه في المتصفح للتنزيل دون تسجيل الدخول.</bdi></p>
-  </section>
 
   <section class="plate">
     <h1>“카타르에서 체험하는 한국” <em>지도</em></h1>
@@ -397,11 +391,4 @@ for (const b of document.querySelectorAll('.btn')) {
 }
 document.getElementById('vclose').addEventListener('click', () => { viewer.hidden = true; });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') viewer.hidden = true; });
-</script>
-<script>
-document.getElementById('mvcopy').addEventListener('click', async e => {
-  const b = e.currentTarget, t = 'https://tinyurl.com/koreainqatar';
-  try { await navigator.clipboard.writeText(t); b.textContent = '복사됨 ✓ Copied'; }
-  catch { const r = document.createRange(); r.selectNodeContents(document.getElementById('newurl')); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); b.textContent = '주소를 길게 눌러 복사 · Long-press to copy'; }
-});
 </script>
